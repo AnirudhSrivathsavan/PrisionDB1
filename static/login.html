@@ -7,9 +7,10 @@
     <title>FORM</title>
 </head>
 <body>
+    {{.Name}}
     <div class="div">
         <form method="POST" action="/form">
-            <label>Employee ID</label><input name="Empid" type="number" value=""/>
+            <label>Employee ID</label><input name="Empid" type="text" value=""/>
             <label>Password</label><input name="Password" type="text" value=""/>
             <input type="submit" value="submit"/>
         </form>

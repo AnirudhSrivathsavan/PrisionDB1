@@ -1,9 +1,8 @@
-package lib
+package lib1
 
 import (
 	"database/sql"
 	"fmt"
-
 	_ "github.com/go-sql-driver/mysql"
 )
 
@@ -13,21 +12,27 @@ type User struct {
 }
 
 var user User
-
 var userdb = "root"
 var password = "anirudhdb"
+var dab *sql.DB
+var err error
 
-func Queryer(query string, inp User) {
-	dab, err := sql.Open("mysql", userdb+":"+password+"@/prisiondb")
+func Queryer(query string, inp User) bool{
+	dab, err = sql.Open("mysql", userdb+":"+password+"@/prisiondb")
 	if err != nil {
 		panic(err.Error())
 	}
 	defer dab.Close()
-	fmt.Println("Successful connection")
 	err = dab.QueryRow(query).Scan(&user.Password)
 	switch err {
 	case sql.ErrNoRows:
-		fmt.Printf("No entry")
+		fmt.Println("User does not exist")
+	default:
+		if user.Password == inp.Password {
+			return true
+		} else {
+			return false
+		}
 	}
-	print(user.Password)
+	return false
 }

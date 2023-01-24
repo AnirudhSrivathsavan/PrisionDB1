@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Prisoner Table</h1>
+    <table>
+        <thead>
+            <tr>
+                <th scope="col">Prisoner ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Entry Date</th>
+                <th scope="col">Exit Date</th>
+                <th scope="col">Cell Number</th>
+                <th scope="col">Crime</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{range .}}
+            <tr>
+                <td>{{.Id}}</td>
+                <td>{{.Name}}</td>
+                <td>{{.Ent}}</td>
+                <td>{{.Exit}}</td>
+                <td>{{.Cell}}</td>
+                <td>{{.Charge}}</td>
+            </tr>
+            {{end}}
+        </tbody>
+    </table>
+</body>
+</html>

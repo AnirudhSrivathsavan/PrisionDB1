@@ -4,16 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FORM</title>
+    <title>Azkaban Prison Database</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
-    {{.Name}}
-    <div class="div">
-        <form method="POST" action="/form">
-            <label>Employee ID</label><input name="Empid" type="text" value=""/>
-            <label>Password</label><input name="Password" type="text" value=""/>
-            <input type="submit" value="submit"/>
-        </form>
+    <div class="forHeading"><h1 class="hed" >The Azkaban Prison</h1></div> 
+    <br>
+    <div class="lbox">
+        <h2>Login Page</h2>
+        <h3>(dont even try if u r a muggle)</h3>
     </div>
+
+    
+    <div class="box">
+        <div class="alert alert-danger" id="alert" role="alert">
+        {{if .Name}}{{.Name}}{{end}}
+         </div>
+      <form method="POST" action="/form">
+            <label>Employee ID</label><input name="Empid" type="text" value=""/>
+            <br>
+            <label>Password</label><input name="Password" type="text" value=""/>
+            <br>
+            <br>
+            <button type="submit" class="btn btn-outline-light">Submit</button>
+        </form>
+    </div> 
 </body>
 </html>
